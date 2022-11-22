@@ -3,6 +3,7 @@ const startButtonTag = document.getElementsByClassName('startButton')[0];
 const pauseButtonTag = document.getElementsByClassName('pauseButton')[0];
 const continueButtonTag = document.getElementsByClassName('continueButton')[0];
 const restartButtonTag = document.getElementsByClassName('restartButton')[0];
+const resetButtonTag = document.getElementsByClassName('resetButton')[0];
 
 let seconds = 00,
   minutes = 00,
@@ -50,4 +51,17 @@ restartButtonTag.addEventListener('click', () => {
   minutes = 0;
   hours = 0;
   intervalId = setInterval(startTime, 1000);
+});
+
+resetButtonTag.addEventListener('click', () => {
+  clearInterval(intervalId);
+
+  seconds = 0;
+  minutes = 0;
+  hours = 0;
+  defaultSecond = '0' + seconds.toString();
+  defaultMinute = '0' + minutes.toString();
+  defaultHour = '0' + hours.toString();
+  stopWatchTag.textContent =
+    defaultHour + ':' + defaultMinute + ':' + defaultSecond;
 });
